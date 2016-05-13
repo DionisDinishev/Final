@@ -14,10 +14,10 @@ namespace Final
         public List<Food> food;
         public List<Block> block;
         public bool specialFood;
-        private Random random;
-        private String type;
+        public Random random;
+        public String type;
         private int score = 0;
-        private enum GameType
+        public enum GameType
         {
             Classic,
             TimeAttack,
@@ -30,78 +30,15 @@ namespace Final
             food = new List<Food>();
             random = new Random();
             this.type = type;
-            generateFood();
-            if (type == "Blocks")
-            {
-                block = new List<Block>();
-                generateBlock();
-            }
             specialFood = false;
             food.Add(new SpecialFood(20, 0));
+            //generateFood();
         }
         public abstract void Draw(Graphics graphics);
-        private void generateFood()
-        {
-            Part tmp = null;
-            Block pom = null;
-            int x, y;
-            x = random.Next(0, 800 / 10 - 10);
-            y = random.Next(0, 600 / 10 - 10);
-            tmp = new Part(x, y, snake.boja);
-            pom = new Block(x, y);
-            if (type == GameType.Block.ToString())
-            {
-                if (!snake.parts.Contains(tmp) && !block.Contains(pom))
-                {
-                    food.Add(new NormalFood(x, y));
-                }
-                else
-                {
-                    generateFood();
-                }
-            }
-            else
-            {
-                if (!snake.parts.Contains(tmp))
-                {
-                    food.Add(new NormalFood(x, y));
-                }
-                else
-                {
-                    generateFood();
-                }
-            }
-        }
-        public void generateSpecialFood()
-        {
-            Part tmp;
-            int x, y;
-            x = random.Next(0, 800 / 10 - 10);
-            y = random.Next(0, 600 / 10 - 10);
-            tmp = new Part(x, y, snake.boja);
-
-            if (!snake.parts.Contains(tmp))
-            {
-                food.Add(new SpecialFood(x, y));
-            }
-            specialFood = true;
-        }
-        private void generateBlock()
-        {
-            for (int i = 0; i < 36; i++)
-            {
-                block.Add(new Block(20 + i, 13));
-                block.Add(new Block(20 + i, 37));
-            }
-            for (int i = 0; i < 6; i++)
-            {
-                block.Add(new Block(20, 13 + i));
-                block.Add(new Block(20, 37 - i));
-                block.Add(new Block(56, 37 - i));
-                block.Add(new Block(56, 13 + i));
-
-            }
-        }
+        public abstract void generateFood();
+        public abstract void generateSpecialFood();
+        
+        
         public bool eat(Snake.Direction last)
         {
             Part p = null;
