@@ -167,7 +167,6 @@ namespace Final
         }
         public bool update(Snake.Direction last)
         {
-            //eat(last);
             if (snake.isGameOver() || snake.eatItself() || Hit(snake.firstPart))
             {
                 return true;
