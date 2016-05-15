@@ -57,6 +57,7 @@ namespace Final
             {
                 speed = f.speed;
                 gameType = f.gameType;
+                timer1.Interval = speed;
             }
             if (f.gameType == "Classic")
             {
