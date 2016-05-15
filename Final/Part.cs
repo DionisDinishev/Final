@@ -9,7 +9,6 @@ namespace Final
 {
     public class Part
     {
-        
         private int X;
         private int Y;
         private const int width = 10;

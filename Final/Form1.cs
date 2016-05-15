@@ -45,11 +45,11 @@ namespace Final
             first = true;
             deadSnake = false;
             deadAnimation = 0;
-            last = Snake.Direction.Right;
-            lastKey = Keys.Right;
+            specialFoodCounter = 0;
             random = new Random();
             tmp = new Random();
-            specialFoodCounter = 0;
+            last = Snake.Direction.Right;
+            lastKey = Keys.Right;
             f = new Form2();
             f.ShowDialog();
             InitializeComponent();
@@ -98,7 +98,6 @@ namespace Final
             if (first)
             {
                 Font f = new Font("Arial", 26);
-
                 Brush b = new SolidBrush(Color.Gray);
                 String text = "Press any key to Start";
                 e.Graphics.DrawString(text, f, b, this.Width / 2 - 26 * text.Count() / 3, this.Height / 2 - 26);
@@ -194,13 +193,8 @@ namespace Final
                 gameOver = true;
                 timer1.Stop();
                 timer2.Stop();
-               // timer3.Stop();
                 timer1.Enabled = false;
                 timer2.Enabled = false;
-                //Animacija za umirane
-                //timer4.Enabled = true;
-              
-
                 DialogResult result = DialogResult.No;
                 String high;
                 int highscore = 0;
@@ -334,7 +328,7 @@ namespace Final
                 delete = true;
                 foodBar = new ToolStripProgressBar();
                 food = new ToolStripStatusLabel();
-                food.Text = "Special food time left" + (10 - specialFoodCounter).ToString();
+                food.Text = "Special food time left:" + (10 - specialFoodCounter).ToString();
                 statusStrip1.Items.Add(food);
                 statusStrip1.Items.Add(foodBar);
                 foodBar.Maximum = 10;
