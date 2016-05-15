@@ -340,7 +340,7 @@ namespace Final
             else if (delete)
             {
                 foodBar.PerformStep();
-                food.Text = "Special food time left" + (10 - specialFoodCounter).ToString();
+                food.Text = "Special food time left:" + (10 - specialFoodCounter).ToString();
             }
 
         }
@@ -356,7 +356,7 @@ namespace Final
                 i = 0;
                 timer3.Stop();
                 timer3.Enabled = false;
-                this.BackColor = Color.DarkGray;
+                this.BackColor = Color.Gray;
                 return;
             }
             i++;
