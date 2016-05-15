@@ -12,6 +12,7 @@ namespace Final
         public Invisible(string type) : base(type)
         {
             snake.setColor(Color.Transparent);
+            generateFood();
         }
 
         public override void Draw(Graphics graphics)

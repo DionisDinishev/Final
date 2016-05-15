@@ -12,11 +12,15 @@ namespace Final
 {
     public partial class Form2 : Form
     {
+        public bool exit;
         public int speed;
         public String gameType;
+        public DialogResult d;
         public Form2()
         {
             InitializeComponent();
+            d = DialogResult.Abort;
+            exit = true;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -49,11 +53,19 @@ namespace Final
         private void button1_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
+            exit = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+            exit = true;
+        }
+
+        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(exit)
+            Application.Exit();
         }
     }
 }

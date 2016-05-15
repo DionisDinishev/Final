@@ -32,7 +32,6 @@ namespace Final
             this.type = type;
             specialFood = false;
             food.Add(new SpecialFood(20, 0));
-            //generateFood();
         }
         public abstract void Draw(Graphics graphics);
         public abstract void generateFood();

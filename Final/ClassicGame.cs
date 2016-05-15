@@ -12,6 +12,7 @@ namespace Final
         public ClassicGame(string type) : base(type)
         {
             snake.setColor(Color.Black);
+            generateFood();
         }
 
         public override void Draw(Graphics graphics)
